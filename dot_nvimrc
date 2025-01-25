@@ -77,8 +77,6 @@ Plug 'amadeus/vim-escaper'
 Plug 'amadeus/vim-evokai'
 Plug 'amadeus/vim-misc'
 
-echom 'we in here?'
-
 call plug#end()
 
 " Source General VimRC
