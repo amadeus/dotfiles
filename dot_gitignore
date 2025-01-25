@@ -1,0 +1,17 @@
+.DS_Store
+._*
+Thumbs.db
+.Spotlight-V100
+.Trashes
+*.pyc
+*.out
+venv
+node_modules
+.sass-cache
+.lvimrc
+Session*.vim
+.ccls
+.ccls-cache/
+.ccls_bin/
+_hack_*
+android_tooling_temp

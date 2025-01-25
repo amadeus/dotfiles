@@ -1,0 +1,137 @@
+" Base .vimrc file
+" Installation Instructions
+"   1. Place file in home directory as .vimrc
+"   2. Run Vim/MacVim/GVim
+"
+"   Notes:
+"       GistID: e4c1c328f83775730713
+"       URL: https://gist.github.com/amadeus/e4c1c328f83775730713
+
+" Ensure all directories are setup properly and download plug.vim
+if empty(glob('~/.vim/autoload/plug.vim'))
+  execute '!mkdir -p ~/.vim/bundle ~/.vim/backup ~/.vim/swap ~/.vim/cache ~/.vim/undo ~/.vim/autoload ~/.vim/bundle'
+  execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+endif
+
+call plug#begin('~/.vim/bundle')
+
+" Plugins
+Plug 'itchyny/lightline.vim'
+" Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'easymotion/vim-easymotion'
+Plug 'mhinz/vim-grepper'
+Plug 'embear/vim-localvimrc'
+Plug 'mhinz/vim-startify'
+Plug 'andymass/vim-matchup'
+Plug 'simnalamburt/vim-mundo'
+Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
+Plug 'junegunn/gv.vim', {'on': 'GV'}
+Plug 'Raimondi/delimitMate'
+Plug 'wellle/targets.vim'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/vim-gist', {'on': 'Gist'}
+Plug 'alfredodeza/jacinto.vim', {'for': ['json']}
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-apathy'
+Plug 'roryokane/detectindent'
+Plug 'tomtom/tcomment_vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'cocopon/vaffle.vim'
+
+" Filetypes
+Plug 'tpope/vim-markdown'
+Plug 'jtratner/vim-flavored-markdown'
+Plug 'othree/html5.vim'
+Plug 'amadeus/vim-mjml'
+Plug 'amadeus/vim-xml'
+Plug 'pangloss/vim-javascript', {'branch': 'misc-flow-improvements'}
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-indent'
+Plug 'farmergreg/vim-lastplace'
+Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}
+Plug 'kana/vim-textobj-function'
+Plug 'haya14busa/vim-textobj-function-syntax'
+Plug 'kevinoid/vim-jsonc'
+Plug 'evanleck/vim-svelte'
+
+if has('nvim') == 1
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-treesitter/playground'
+  " Plug 'Shougo/ddc-nvim-lsp'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'williamboman/nvim-lsp-installer'
+  " Plug 'Shougo/ddc-source-nvim-lsp'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'pmizio/typescript-tools.nvim'
+  Plug 'Shougo/ddc-source-lsp'
+  " Plug 'jose-elias-alvarez/typescript.nvim' -- abandoned
+  " Plug 'dense-analysis/ale'
+else
+  Plug 'amadeus/vim-css'
+  Plug 'amadeus/vim-typescript'
+  Plug 'amadeus/vim-jsx'
+
+  " LSP Tests (disabling ale to ensure no fighting, for now)
+  Plug 'dense-analysis/ale'
+  " Plug 'statiolake/ddc-ale'
+  Plug 'amadeus/ddc-ale', {'branch': 'update-deps-2'}
+  " Plug 'Shougo/pum.vim'
+  " Plug 'Shougo/ddc-ui-pum'
+  " Plug 'shun/ddc-vim-lsp'
+  " Plug 'prabirshrestha/vim-lsp'
+  " Plug 'amadeus/vim-lsp-settings', {'branch': 'add-typescript-tsx'}
+endif
+
+" DDC Memes
+Plug 'vim-denops/denops.vim'
+Plug 'Shougo/ddc.vim'
+Plug 'Shougo/ddc-matcher_head'
+Plug 'matsui54/ddc-buffer'
+Plug 'Shougo/ddc-sorter_rank'
+Plug 'Shougo/ddc-converter_remove_overlap'
+" Plug 'amadeus/ddc-file-source'
+" Plug 'LumaKernel/ddc-tabnine'
+" Plug 'Shougo/ddc-omni'
+Plug 'Shougo/echodoc.vim'
+Plug 'Shougo/ddc-ui-native'
+
+" TESTING:
+Plug 'editorconfig/editorconfig-vim'
+Plug 'jparise/vim-graphql'
+Plug 'dhruvasagar/vim-open-url'
+Plug 'vim/killersheep'
+Plug 'romainl/vim-cool'
+Plug 'amadeus/vim-px-to-em'
+Plug 'stsewd/fzf-checkout.vim'
+Plug 'godlygeek/tabular'
+Plug 'tomlion/vim-solidity'
+" Plug 'dense-analysis/neural'
+" Plug 'github/copilot.vim'
+Plug 'direnv/direnv.vim'
+" Plug 'girishji/vimcomplete'
+" Plug 'yegappan/lsp'
+
+" My personal tweaks and and fixes and configuration
+Plug 'amadeus/scratch.vim'
+Plug 'amadeus/vim-convert-color-to'
+Plug 'amadeus/closetag.vim'
+Plug 'amadeus/vim-escaper'
+Plug 'amadeus/vim-evokai'
+Plug 'amadeus/vim-misc'
+
+call plug#end()
+
+" Source General VimRC
+runtime! vimrc.vim
+
+" Source Custom VimRC
+runtime! .myvimrc

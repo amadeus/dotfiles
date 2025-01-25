@@ -1,0 +1,52 @@
+# GistID: 1502a57d4680133e14d97af57c10b3a1
+# https://gist.github.com/amadeus/1502a57d4680133e14d97af57c10b3a1
+
+# Color Palette
+# palette=0=#797979
+# palette=1=#e60000
+# palette=10=#3cff00
+# palette=11=#ff4b00
+# palette=12=#00d5dd
+# palette=13=#eb69a1
+# palette=14=#36a6ff
+# palette=15=#efefef
+# palette=2=#3cff00
+# palette=3=#ff4b00
+# palette=4=#00d5dd
+# palette=5=#fc167c
+# palette=6=#00d5dd
+# palette=7=#eaeaea
+# palette=8=#75715e
+# palette=9=#c72c2a
+# background=#1a1b14
+# cursor-color=#ff027f
+# foreground=#fefefe
+# selection-foreground=#121212
+# selection-background=#75715e
+
+theme = ayu
+
+# Fonts
+font-family="Berkeley Mono"
+font-size=16
+font-thicken=true
+
+# Window Settings
+window-padding-x=8
+window-padding-y=4
+window-step-resize=true
+window-vsync=true
+window-width=120
+window-height=30
+window-theme=dark
+macos-titlebar-style="tabs"
+
+# Cell Settings
+# adjust-cell-height=+5
+# adjust-cell-width=-2
+# adjust-font-baseline=-2
+# adjust-underline-position=+2
+adjust-cursor-thickness=3
+
+# lets goooooo
+scrollback-limit=1000000000
