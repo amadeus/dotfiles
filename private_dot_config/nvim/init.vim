@@ -1,3 +1,6 @@
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+
 if empty(glob('~/.vim/autoload/plug.vim'))
   execute '!mkdir -p ~/.vim/bundle ~/.vim/backup ~/.vim/swap ~/.vim/cache ~/.vim/undo ~/.vim/autoload ~/.vim/bundle'
   execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -5,7 +8,7 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
-Plug 'itchyny/lightline.vim'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
@@ -38,10 +41,9 @@ Plug 'cocopon/vaffle.vim'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'mhartington/formatter.nvim'
-" lol -- apparently this is also dead...
-" Plug 'pmizio/typescript-tools.nvim'
+"Plug 'nvim-lua/plenary.nvim'
+"Plug 'mhartington/formatter.nvim'
+Plug 'dense-analysis/ale'
 
 " Treesitter stuff
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -74,13 +76,14 @@ Plug 'amadeus/vim-px-to-em'
 Plug 'amadeus/scratch.vim'
 Plug 'amadeus/vim-convert-color-to'
 Plug 'amadeus/vim-escaper'
-Plug 'amadeus/vim-evokai'
+" Plug 'amadeus/vim-evokai'
+Plug 'Shatur/neovim-ayu'
 Plug 'amadeus/vim-misc'
 
 call plug#end()
 
 " Source General VimRC
-runtime! vimrc.vim
+runtime! nvimrc.vim
 
 " Source Custom VimRC
 runtime! .myvimrc

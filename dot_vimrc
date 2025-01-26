@@ -1,11 +1,5 @@
 " Base .vimrc file
-" Installation Instructions
-"   1. Place file in home directory as .vimrc
-"   2. Run Vim/MacVim/GVim
-"
-"   Notes:
-"       GistID: e4c1c328f83775730713
-"       URL: https://gist.github.com/amadeus/e4c1c328f83775730713
+" Managed by chezmoi - `chezmoi edit ~/.vimrc` to update
 
 " Ensure all directories are setup properly and download plug.vim
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -17,7 +11,6 @@ call plug#begin('~/.vim/bundle')
 
 " Plugins
 Plug 'itchyny/lightline.vim'
-" Plug 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
@@ -63,33 +56,19 @@ Plug 'haya14busa/vim-textobj-function-syntax'
 Plug 'kevinoid/vim-jsonc'
 Plug 'evanleck/vim-svelte'
 
-if has('nvim') == 1
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'nvim-treesitter/playground'
-  " Plug 'Shougo/ddc-nvim-lsp'
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'williamboman/nvim-lsp-installer'
-  " Plug 'Shougo/ddc-source-nvim-lsp'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'pmizio/typescript-tools.nvim'
-  Plug 'Shougo/ddc-source-lsp'
-  " Plug 'jose-elias-alvarez/typescript.nvim' -- abandoned
-  " Plug 'dense-analysis/ale'
-else
-  Plug 'amadeus/vim-css'
-  Plug 'amadeus/vim-typescript'
-  Plug 'amadeus/vim-jsx'
+Plug 'amadeus/vim-css'
+Plug 'amadeus/vim-typescript'
+Plug 'amadeus/vim-jsx'
 
-  " LSP Tests (disabling ale to ensure no fighting, for now)
-  Plug 'dense-analysis/ale'
-  " Plug 'statiolake/ddc-ale'
-  Plug 'amadeus/ddc-ale', {'branch': 'update-deps-2'}
-  " Plug 'Shougo/pum.vim'
-  " Plug 'Shougo/ddc-ui-pum'
-  " Plug 'shun/ddc-vim-lsp'
-  " Plug 'prabirshrestha/vim-lsp'
-  " Plug 'amadeus/vim-lsp-settings', {'branch': 'add-typescript-tsx'}
-endif
+" LSP Tests (disabling ale to ensure no fighting, for now)
+Plug 'dense-analysis/ale'
+" Plug 'statiolake/ddc-ale'
+Plug 'amadeus/ddc-ale', {'branch': 'update-deps-2'}
+" Plug 'Shougo/pum.vim'
+" Plug 'Shougo/ddc-ui-pum'
+" Plug 'shun/ddc-vim-lsp'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'amadeus/vim-lsp-settings', {'branch': 'add-typescript-tsx'}
 
 " DDC Memes
 Plug 'vim-denops/denops.vim'
@@ -114,11 +93,7 @@ Plug 'amadeus/vim-px-to-em'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'godlygeek/tabular'
 Plug 'tomlion/vim-solidity'
-" Plug 'dense-analysis/neural'
-" Plug 'github/copilot.vim'
 Plug 'direnv/direnv.vim'
-" Plug 'girishji/vimcomplete'
-" Plug 'yegappan/lsp'
 
 " My personal tweaks and and fixes and configuration
 Plug 'amadeus/scratch.vim'
