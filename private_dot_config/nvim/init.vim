@@ -38,12 +38,16 @@ Plug 'junegunn/fzf.vim'
 Plug 'cocopon/vaffle.vim'
 
 " LSP Stuff
+Plug 'nvim-lua/plenary.nvim'
+Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
-Plug 'neovim/nvim-lspconfig'
-"Plug 'nvim-lua/plenary.nvim'
+Plug 'nvimtools/none-ls.nvim'
+
+"Plug 'neovim/nvim-lspconfig' -- not sure if this is even needed, but keeping it around in case
+" Not sure if i still need these, but keeping them around in case...
 "Plug 'mhartington/formatter.nvim'
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
 
 " Treesitter stuff
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
