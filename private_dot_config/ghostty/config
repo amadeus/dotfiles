@@ -1,7 +1,9 @@
-# GistID: 1502a57d4680133e14d97af57c10b3a1
-# https://gist.github.com/amadeus/1502a57d4680133e14d97af57c10b3a1
+# Managed by `chezmoi`
+# Hosted @ https://pierre.co/amadeus/dotfiles
 
-# Color Palette
+theme=ayu
+
+# Color Palette - deprecated in favor of `ayu` atm
 # palette=0=#797979
 # palette=1=#e60000
 # palette=10=#3cff00
@@ -24,8 +26,6 @@
 # selection-foreground=#121212
 # selection-background=#75715e
 
-theme=ayu
-
 # Fonts
 font-family="Berkeley Mono"
 font-size=16
@@ -39,9 +39,14 @@ window-vsync=true
 window-width=120
 window-height=30
 window-theme=dark
-macos-titlebar-style="tabs"
+macos-titlebar-style=tabs
+macos-titlebar-proxy-icon=hidden
 
-# Cell Settings
+# Icon Settings - Does not appear to work at the moment?
+macos-icon="custom-style"
+macos-icon-frame=plastic
+
+# Cell Settings - Don't think I need most of these anymore...
 # adjust-cell-height=+5
 # adjust-cell-width=-2
 # adjust-font-baseline=-2
@@ -50,3 +55,7 @@ adjust-cursor-thickness=3
 
 # lets goooooo
 scrollback-limit=1000000000
+
+# Updater settings
+auto-update=check
+auto-update-channel=tip
