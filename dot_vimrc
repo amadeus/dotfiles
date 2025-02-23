@@ -94,6 +94,7 @@ Plug 'stsewd/fzf-checkout.vim'
 Plug 'godlygeek/tabular'
 Plug 'tomlion/vim-solidity'
 Plug 'direnv/direnv.vim'
+Plug 'pasky/claude.vim'
 
 " My personal tweaks and and fixes and configuration
 Plug 'amadeus/scratch.vim'
