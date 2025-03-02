@@ -53,23 +53,33 @@ Plug 'nvimtools/none-ls.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " DDC Stuff
-Plug 'vim-denops/denops.vim'
-Plug 'Shougo/ddc.vim'
-Plug 'Shougo/ddc-matcher_head'
-Plug 'Shougo/ddc-sorter_rank'
-Plug 'Shougo/ddc-converter_remove_overlap'
+" Plug 'vim-denops/denops.vim'
+" Plug 'Shougo/ddc.vim'
+" Plug 'Shougo/ddc-matcher_head'
+" Plug 'Shougo/ddc-sorter_rank'
+" Plug 'Shougo/ddc-converter_remove_overlap'
 " Do I still want this?
 " Plug 'matsui54/ddc-buffer'
-Plug 'Shougo/ddc-source-lsp'
+" Plug 'Shougo/ddc-source-lsp'
 
 " appears to not be supported anymore...
-Plug 'hrsh7th/vim-vsnip'
-Plug 'uga-rosa/ddc-source-vsnip'
+" Plug 'hrsh7th/vim-vsnip'
+" Plug 'uga-rosa/ddc-source-vsnip'
 
 " DDC UI Stuff...
-Plug 'Shougo/ddc-ui-native'
+" Plug 'Shougo/ddc-ui-native'
 " Plug 'Shougo/pum.vim'
 " Plug 'Shougo/ddc-ui-pum'
+
+" Testing magazine.nvim
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 
 
 " Misc Stuff -- may want to re-think this boyo
