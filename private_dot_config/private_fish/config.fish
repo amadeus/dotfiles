@@ -18,6 +18,12 @@ end
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
+# pnpm
+set -gx PNPM_HOME "/Users/amadeus/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+
 # proto
 set -gx PROTO_HOME "$HOME/.proto";
 set -gx PATH "$PROTO_HOME/shims" "$PROTO_HOME/bin" $PATH;
