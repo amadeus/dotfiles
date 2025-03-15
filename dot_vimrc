@@ -88,7 +88,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'jparise/vim-graphql'
 Plug 'dhruvasagar/vim-open-url'
 Plug 'vim/killersheep'
-Plug 'romainl/vim-cool'
+" This boi ends up conflicting with Claude.vim, and honestly not sure it's
+" worth the effort right now
+" Plug 'romainl/vim-cool'
 Plug 'amadeus/vim-px-to-em'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'godlygeek/tabular'
