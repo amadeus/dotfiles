@@ -60,7 +60,8 @@ Plug 'saghen/blink.cmp', {'tag': '*'}
 " Misc Stuff -- may want to re-think this boyo
 Plug 'sbdchd/neoformat'
 Plug 'dhruvasagar/vim-open-url'
-Plug 'romainl/vim-cool'
+" This plugin is wrecking havoc on Claude Chat
+" Plug 'romainl/vim-cool'
 Plug 'amadeus/vim-px-to-em'
 Plug 'amadeus/scratch.vim'
 Plug 'amadeus/vim-convert-color-to'
