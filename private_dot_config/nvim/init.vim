@@ -93,6 +93,7 @@ Plug 'amadeus/vim-escaper'
 " Plug 'amadeus/vim-evokai'
 Plug 'Shatur/neovim-ayu'
 Plug 'amadeus/vim-misc'
+Plug 'pasky/claude.vim'
 
 call plug#end()
 
