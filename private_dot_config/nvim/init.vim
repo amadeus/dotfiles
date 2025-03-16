@@ -42,12 +42,10 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
-Plug 'nvimtools/none-ls.nvim'
 
-"Plug 'neovim/nvim-lspconfig' -- not sure if this is even needed, but keeping it around in case
-" Not sure if i still need these, but keeping them around in case...
-"Plug 'mhartington/formatter.nvim'
-"Plug 'dense-analysis/ale'
+" Linting & Stuff (preferring Ale atm)
+Plug 'dense-analysis/ale'
+" Plug 'nvimtools/none-ls.nvim'
 
 " Treesitter stuff
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
