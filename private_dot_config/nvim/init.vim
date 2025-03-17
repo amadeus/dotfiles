@@ -49,6 +49,8 @@ Plug 'dense-analysis/ale'
 
 " Treesitter stuff
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+"Plug 'm-demare/hlargs.nvim'
+"Plug 'nvim-treesitter/playground'
 
 " Testing out blink.cmp
 Plug 'saghen/blink.cmp', {'tag': '*'}
@@ -64,7 +66,7 @@ Plug 'amadeus/vim-px-to-em'
 Plug 'amadeus/scratch.vim'
 Plug 'amadeus/vim-convert-color-to'
 Plug 'amadeus/vim-escaper'
-" Plug 'amadeus/vim-evokai'
+Plug 'amadeus/vim-evokai'
 Plug 'Shatur/neovim-ayu'
 Plug 'amadeus/vim-misc'
 Plug 'pasky/claude.vim'
