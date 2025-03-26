@@ -1,30 +1,30 @@
 # Managed by `chezmoi`
 # Hosted @ https://pierre.co/amadeus/dotfiles
 
-theme=ayu
+# theme=ayu
 
 # Color Palette - deprecated in favor of `ayu` atm
-# palette=0=#797979
-# palette=1=#e60000
-# palette=10=#3cff00
-# palette=11=#ff4b00
-# palette=12=#00d5dd
-# palette=13=#eb69a1
-# palette=14=#36a6ff
-# palette=15=#efefef
-# palette=2=#3cff00
-# palette=3=#ff4b00
-# palette=4=#00d5dd
-# palette=5=#fc167c
-# palette=6=#00d5dd
-# palette=7=#eaeaea
-# palette=8=#75715e
-# palette=9=#c72c2a
-# background=#1a1b14
-# cursor-color=#ff027f
-# foreground=#fefefe
-# selection-foreground=#121212
-# selection-background=#75715e
+palette=0=#797979
+palette=1=#e60000
+palette=10=#3cff00
+palette=11=#ff4b00
+palette=12=#00d5dd
+palette=13=#eb69a1
+palette=14=#36a6ff
+palette=15=#efefef
+palette=2=#3cff00
+palette=3=#ff4b00
+palette=4=#00d5dd
+palette=5=#fc167c
+palette=6=#00d5dd
+palette=7=#eaeaea
+palette=8=#75715e
+palette=9=#c72c2a
+background=#1a1b14
+cursor-color=#ff027f
+foreground=#fefefe
+selection-foreground=#121212
+selection-background=#75715e
 
 # Fonts
 font-family="Berkeley Mono"
