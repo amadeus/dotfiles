@@ -11,7 +11,8 @@ call plug#begin('~/.vim/bundle')
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'easymotion/vim-easymotion'
+"Plug 'easymotion/vim-easymotion'
+Plug 'smoka7/hop.nvim' " Alternative to easy-motion that won't break buffer linting
 Plug 'mhinz/vim-grepper'
 Plug 'embear/vim-localvimrc'
 Plug 'mhinz/vim-startify'
@@ -53,6 +54,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "Plug 'nvim-treesitter/playground'
 
 " Testing out blink.cmp
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'saghen/blink.cmp', {'tag': '*'}
 " Explore this option if I want snippet support
 " Plug 'rafamadriz/friendly-snippets'
