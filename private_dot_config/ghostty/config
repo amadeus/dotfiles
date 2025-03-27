@@ -22,6 +22,7 @@ palette=8=#75715e
 palette=9=#c72c2a
 background=#1a1b14
 cursor-color=#ff027f
+cursor-text=#000000
 foreground=#fefefe
 selection-foreground=#121212
 selection-background=#75715e
@@ -52,6 +53,7 @@ macos-icon-frame=plastic
 # adjust-font-baseline=-2
 # adjust-underline-position=+2
 adjust-cursor-thickness=3
+adjust-underline-thickness=-1
 
 # lets goooooo
 scrollback-limit=1000000000
