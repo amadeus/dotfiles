@@ -43,6 +43,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'stevearc/conform.nvim'
 
 " Linting & Stuff (preferring Ale atm)
 Plug 'dense-analysis/ale'
