@@ -1,3 +1,6 @@
+vim.opt.encoding = 'utf-8'
+vim.cmd('scriptencoding utf-8')
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
