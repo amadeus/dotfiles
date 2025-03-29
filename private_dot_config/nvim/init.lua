@@ -32,7 +32,7 @@ require("lazy").setup({
     config = function()
       require('init')
       pcall(function()
-        require('myvimrc')
+        dofile(vim.fn.stdpath('config') .. '/myvimrc.lua')
       end)
     end,
     -- Optional: if your repo includes a plugin list
