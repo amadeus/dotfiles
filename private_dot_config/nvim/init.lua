@@ -18,8 +18,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Set up leader key before lazy setup
-vim.g.mapleader = "q" -- Use space as leader key
+vim.keymap.set('n', 'q', '<nop>', { noremap = true })
+vim.keymap.set('v', 'q', '<nop>', { noremap = true })
+vim.g.mapleader = "q"
 vim.g.maplocalleader = "q"
+vim.keymap.set('n', 'Q', 'q', { noremap = true })
+vim.keymap.set('v', 'Q', 'q', { noremap = true })
+
 
 -- Load your external configuration repository
 require("lazy").setup({
@@ -38,9 +43,6 @@ require("lazy").setup({
         dofile(vim.fn.stdpath('config') .. '/myvimrc.lua')
       end)
     end,
-    -- Optional: if your repo includes a plugin list
-    dependencies = {},
-    -- Optional: specify a priority to ensure it loads first
     priority = 1000,
   },
 })
