@@ -45,4 +45,9 @@ require("lazy").setup({
     end,
     priority = 1000,
   },
+}, {
+  change_detection = {
+    enabled = false,
+    notify = false,
+  },
 })
