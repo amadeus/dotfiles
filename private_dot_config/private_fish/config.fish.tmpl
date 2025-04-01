@@ -1,3 +1,8 @@
+{{- if eq .chezmoi.os "darwin" "linux" }}
+  # Anthropic API key from 1Password
+  set -gx ANTHROPIC_API_KEY "{{ onepasswordRead "op://Private/Anthropic API Key/password" }}"
+{{- end }}
+
 if test (uname -m) = "arm64"
     set -Ux HOMEBREW_PREFIX /opt/homebrew
 else
