@@ -10,7 +10,7 @@ if not vim.loop.fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- Use stable release
+		"--branch=stable",
 		lazypath,
 	})
 end
@@ -28,12 +28,9 @@ vim.keymap.set("v", "Q", "q", { noremap = true })
 -- Load your external configuration repository
 require("lazy").setup({
 	{
-		-- Replace with your actual repository URL
 		"amadeus/nvim-config",
-		depth = false,
-		-- Use the main branch (or specify another branch)
+		depth = true,
 		branch = "main",
-		-- Import all Neovim configuration from the repo
 		import = "plugins",
 		lazy = false,
 		config = function()
@@ -48,5 +45,10 @@ require("lazy").setup({
 	change_detection = {
 		enabled = false,
 		notify = false,
+	},
+	ui = {
+		size = { width = 0.8, height = 0.8 },
+		border = "none",
+		backdrop = 85,
 	},
 })
