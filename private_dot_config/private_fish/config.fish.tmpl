@@ -3,6 +3,11 @@
   set -gx ANTHROPIC_API_KEY "{{ onepasswordRead "op://Private/Anthropic API Key/password" }}"
 {{- end }}
 
+{{- if eq .chezmoi.os "darwin" "linux" }}
+  # Github Copilot Oauth Token from 1Password
+  set -gx GITHUB_COPILOT_TOKEN "{{ onepasswordRead "op://Private/Copilot Oauth Token/password" }}"
+{{- end }}
+
 if test (uname -m) = "arm64"
     set -Ux HOMEBREW_PREFIX /opt/homebrew
 else
