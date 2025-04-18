@@ -1,7 +1,7 @@
 # GistID: 646b9d73fa2d8b352573
 
 [core]
-	editor = mvim -f
+	editor = nvim
 	excludesfile = /Users/amadeus/.gitignore
 	quotepath = false
 	pager = less -FRX
@@ -54,7 +54,7 @@
 	tool = Kaleidoscope
 
 [mergetool "splice"]
-	cmd = "mvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+	cmd = "nvim $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
 	trustExitCode = true
 
 [mergetool "Kaleidoscope"]
