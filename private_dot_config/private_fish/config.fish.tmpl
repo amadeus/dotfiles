@@ -8,6 +8,11 @@
   set -gx GEMINI_API_KEY "{{ onepasswordRead "op://Private/Gemini API Key/password" }}"
 {{- end }}
 
+{{- if eq .chezmoi.os "darwin" "linux" }}
+  # OpenAI API key from 1Password
+  set -gx OPENAI_API_KEY "{{ onepasswordRead "op://Private/OpenAI API Key/password" }}"
+{{- end }}
+
 if test (uname -m) = "arm64"
     set -Ux HOMEBREW_PREFIX /opt/homebrew
 else
