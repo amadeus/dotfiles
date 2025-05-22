@@ -1,14 +1,12 @@
 {{- if eq .chezmoi.os "darwin" "linux" }}
   # Anthropic API key from 1Password
   set -gx ANTHROPIC_API_KEY "{{ onepasswordRead "op://Private/Anthropic API Key/password" }}"
-{{- end }}
 
-{{- if eq .chezmoi.os "darwin" "linux" }}
   # Gemini API key from 1Password
   set -gx GEMINI_API_KEY "{{ onepasswordRead "op://Private/Gemini API Key/password" }}"
-{{- end }}
+  set -gx GOOGLE_API_KEY "{{ onepasswordRead "op://Private/Gemini API Key/password" }}"
+  set -gx LLM_GEMINI_KEY "{{ onepasswordRead "op://Private/Gemini API Key/password" }}"
 
-{{- if eq .chezmoi.os "darwin" "linux" }}
   # OpenAI API key from 1Password
   set -gx OPENAI_API_KEY "{{ onepasswordRead "op://Private/OpenAI API Key/password" }}"
 {{- end }}
