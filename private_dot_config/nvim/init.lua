@@ -47,9 +47,9 @@ require("lazy").setup({
 		notify = false,
 	},
 	ui = {
-		size = { width = 0.9, height = 0.9 },
 		wrap = true,
-		border = "rounded",
-		backdrop = 100,
+		size = { width = 0.85, height = 0.85 },
+		border = "none",
+		backdrop = 20,
 	},
 })
