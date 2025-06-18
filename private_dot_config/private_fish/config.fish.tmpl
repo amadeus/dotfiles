@@ -9,6 +9,9 @@
 
   # OpenAI API key from 1Password
   set -gx OPENAI_API_KEY "{{ onepasswordRead "op://Private/OpenAI API Key/password" }}"
+
+  # Tavily API Key
+  set -gx TAVILY_API_KEY "{{ onepasswordRead "op://Private/Tavily API Key/password" }}"
 {{- end }}
 
 if test (uname -m) = "arm64"
