@@ -109,3 +109,6 @@ scrollback-limit=1000000000
 # Updater settings
 auto-update=check
 auto-update-channel=tip
+
+# Trying out a custom cursor shader, for the memes
+custom-shader=./cursor_smear_fade.glsl
