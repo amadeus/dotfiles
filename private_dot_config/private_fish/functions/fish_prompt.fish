@@ -54,37 +54,41 @@ function fish_prompt
             end
             return 1
         end
+        # Quick function that converts full path into abbreviated parent
+        # directories, with some special handling for folders that begin with a
+        # symbol to include both the symbol AND the first letter
         function _fish_prompt_short_path
-            set -l path (prompt_pwd)
+            set -l path (string replace -r "^$HOME" "~" (pwd))
+
             if test "$path" = / -o "$path" = "~"
                 echo $path
                 return
             end
 
-            set -l parts (string split / $path)
-            set -l last_part $parts[-1]
-            set -l parent_parts $parts[1..-2]
-            set -l short_path
+            set -l parts (string split / -- $path)
+            set -l result ""
+            set -l count (count $parts)
 
-            for part in $parent_parts
-                if test "$part" = "~"
-                    set short_path "~"
+            for i in (seq 1 (math $count - 1))
+                set -l part $parts[$i]
+                if test -z "$part" -a $i -eq 1
+                    set result /
+                else if test "$part" = "~"
+                    set result "~"
                 else if test -n "$part"
-                    set -l short_part
-                    if string match -q --regex '^[a-zA-Z]' $part
-                        set short_part (string sub --length 1 $part)
+                    if string match -q --regex '^[a-zA-Z0-9]' -- $part
+                        set result "$result/"(string sub -l 1 -- $part)
                     else
-                        set short_part (string sub --length 2 $part)
+                        set result "$result/"(string sub -l 2 -- $part)
                     end
-                    set short_path "$short_path/"$short_part
                 end
             end
 
-            if test -z "$short_path" -a (string sub -l 1 "$path") = /
-                set short_path /
+            if test $count -gt 0
+                set result "$result/"$parts[-1]
             end
 
-            echo "$short_path/$last_part" | string replace -r // /
+            echo $result | string replace -r '^//|//' /
         end
     end
 
