@@ -25,7 +25,6 @@ vim.g.maplocalleader = "q"
 vim.keymap.set("n", "Q", "q", { noremap = true })
 vim.keymap.set("v", "Q", "q", { noremap = true })
 
--- Load your external configuration repository
 require("lazy").setup({
 	{
 		"amadeus/nvim-config",
