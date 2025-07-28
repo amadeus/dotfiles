@@ -1,5 +1,3 @@
-# GistID: 646b9d73fa2d8b352573
-
 [core]
 	editor = nvim
 	excludesfile = /Users/amadeus/.gitignore
@@ -41,11 +39,8 @@
 [credential]
 	helper = osxkeychain
 
-[difftool "ksdiff"]
-
 [diff]
-	algorithm = patience
-	tool = Kaleidoscope
+	algorithm = histogram
 
 [difftool]
 	prompt = false
