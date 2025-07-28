@@ -5,7 +5,6 @@
 	pager = less -FRX
 
 [pull]
-	default = upstream
 	rebase = true
 
 [push]
@@ -45,17 +44,6 @@
 [difftool]
 	prompt = false
 
-[merge]
-	tool = Kaleidoscope
-
-[mergetool "splice"]
-	cmd = "nvim $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
-	trustExitCode = true
-
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
-
 [mergetool]
 	prompt = false
 
@@ -65,23 +53,27 @@
 [help]
 	autocorrect = 1
 
-[filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+
 [github]
 	user = amadeus
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[url "\"git@github.com:\""]
-	insteadOf = \"https://github.com/\"
+
 [init]
 	defaultBranch = main
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
 [rerere]
 	enabled = true
+
+[fetch]
+	prune = true
+
+[rebase]
+	autosquash = true
+	autostash = true
