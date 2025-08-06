@@ -53,3 +53,8 @@ end
 
 # Trying out vim mode...
 fish_vi_key_bindings
+
+# Source local config if it exists (not synced with chezmoi)
+if test -f ~/.config/fish/local.fish
+    source ~/.config/fish/local.fish
+end
