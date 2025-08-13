@@ -1,23 +1,23 @@
 {{- if eq .chezmoi.os "darwin" "linux" }}
-  # Anthropic API key from 1Password
-  set -gx ANTHROPIC_API_KEY "{{ onepasswordRead "op://Private/Anthropic API Key/password" }}"
+# Anthropic API key from 1Password
+set -gx ANTHROPIC_API_KEY "{{ onepasswordRead "op://Private/Anthropic API Key/password" }}"
 
-  # Gemini API key from 1Password
-  set -gx GEMINI_API_KEY "{{ onepasswordRead "op://Private/Gemini API Key/password" }}"
-  set -gx GOOGLE_API_KEY "{{ onepasswordRead "op://Private/Gemini API Key/password" }}"
-  set -gx LLM_GEMINI_KEY "{{ onepasswordRead "op://Private/Gemini API Key/password" }}"
+# Gemini API key from 1Password
+set -gx GEMINI_API_KEY "{{ onepasswordRead "op://Private/Gemini API Key/password" }}"
+set -gx GOOGLE_API_KEY "{{ onepasswordRead "op://Private/Gemini API Key/password" }}"
+set -gx LLM_GEMINI_KEY "{{ onepasswordRead "op://Private/Gemini API Key/password" }}"
 
-  # OpenAI API key from 1Password
-  set -gx OPENAI_API_KEY "{{ onepasswordRead "op://Private/OpenAI API Key/password" }}"
+# OpenAI API key from 1Password
+set -gx OPENAI_API_KEY "{{ onepasswordRead "op://Private/OpenAI API Key/password" }}"
 
-  # Tavily API Key
-  set -gx TAVILY_API_KEY "{{ onepasswordRead "op://Private/Tavily API Key/password" }}"
+# Tavily API Key
+set -gx TAVILY_API_KEY "{{ onepasswordRead "op://Private/Tavily API Key/password" }}"
 {{- end }}
 
 if test (uname -m) = "arm64"
-    set -Ux HOMEBREW_PREFIX /opt/homebrew
+  set -Ux HOMEBREW_PREFIX /opt/homebrew
 else
-    set -Ux HOMEBREW_PREFIX /usr/local
+  set -Ux HOMEBREW_PREFIX /usr/local
 end
 
 set -Ux HOMEBREW_BIN $HOMEBREW_PREFIX/bin
@@ -28,7 +28,7 @@ fish_add_path $HOMEBREW_BIN
 fish_add_path $HOMEBREW_SBIN
 
 if test -e $HOMEBREW_BIN/brew
-    eval ($HOMEBREW_BIN/brew shellenv)
+  eval ($HOMEBREW_BIN/brew shellenv)
 end
 
 # bun
@@ -45,10 +45,15 @@ end
 set -gx PROTO_HOME "$HOME/.proto";
 set -gx PATH "$PROTO_HOME/shims" "$PROTO_HOME/bin" $PATH;
 
+# direnv
+if command -q direnv
+  direnv hook fish | source
+end
+
 if status is-interactive
-    # Commands to run in interactive sessions can go here
-    set -g fish_greeting 'sup bisch'
-    set -gx EDITOR nvim
+  # Commands to run in interactive sessions can go here
+  set -g fish_greeting 'sup bisch'
+  set -gx EDITOR nvim
 end
 
 # Trying out vim mode...
@@ -56,5 +61,5 @@ fish_vi_key_bindings
 
 # Source local config if it exists (not synced with chezmoi)
 if test -f ~/.config/fish/local.fish
-    source ~/.config/fish/local.fish
+  source ~/.config/fish/local.fish
 end
