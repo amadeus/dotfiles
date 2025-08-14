@@ -112,3 +112,6 @@ auto-update-channel=tip
 
 # Trying out a custom cursor shader, for the memes
 custom-shader=./cursor_smear_fade.glsl
+
+# I need this keybind in neovim for gitsigns plugin... 
+keybind = cmd+shift+j=unbind
