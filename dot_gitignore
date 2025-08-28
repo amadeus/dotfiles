@@ -121,7 +121,6 @@ local.properties
 
 # Logs n Stuff
 *.log
-logs/
 *.sql
 *.sqlite
 *.sqlite3
