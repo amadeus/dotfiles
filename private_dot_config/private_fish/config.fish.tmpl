@@ -1,6 +1,7 @@
 {{- if eq .chezmoi.os "darwin" "linux" }}
 # Anthropic API key from 1Password
 set -gx ANTHROPIC_API_KEY "{{ onepasswordRead "op://Private/Anthropic API Key/password" }}"
+set -gx CLAUDE_CODE_API_KEY "{{ onepasswordRead "op://Private/Claude Code API Key/password" }}"
 
 # Gemini API key from 1Password
 set -gx GEMINI_API_KEY "{{ onepasswordRead "op://Private/Gemini API Key/password" }}"
