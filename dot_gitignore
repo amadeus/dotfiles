@@ -146,3 +146,6 @@ htmlcov/
 test-results/
 cypress/videos/
 cypress/screenshots/
+
+# AI Stuff
+.claude/
