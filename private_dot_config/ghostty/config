@@ -92,6 +92,7 @@ window-width=120
 window-height=30
 window-theme=dark
 window-decoration=auto
+macos-titlebar-style=tabs
 macos-non-native-fullscreen=visible-menu
 mouse-hide-while-typing=true
 copy-on-select=false
