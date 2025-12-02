@@ -118,4 +118,4 @@ custom-shader=./cursor_smear_fade.glsl
 
 # I need this keybind in neovim for gitsigns plugin... 
 keybind = cmd+shift+j=unbind
-keybind = shift+enter=text:\x1b\r
+keybind = shift+enter=text:\n
