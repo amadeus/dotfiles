@@ -119,3 +119,53 @@ custom-shader=./cursor_smear_fade.glsl
 # I need this keybind in neovim for gitsigns plugin... 
 keybind = cmd+shift+j=unbind
 keybind = shift+enter=text:\n
+
+# Vim-mode keybindings for Ghostty. (courtesy of hitchellm)
+# Key table definition
+keybind = vim/
+
+# Entry point
+keybind = ctrl+w>n=activate_key_table:vim
+
+# Line movement
+keybind = vim/ctrl+e=scroll_page_lines:1
+keybind = vim/ctrl+y=scroll_page_lines:-1
+
+# Page movement
+keybind = vim/ctrl+d=scroll_page_down
+keybind = vim/ctrl+u=scroll_page_up
+keybind = vim/ctrl+f=scroll_page_down
+keybind = vim/ctrl+b=scroll_page_up
+keybind = vim/shift+j=scroll_page_down
+keybind = vim/shift+k=scroll_page_up
+
+# Jump to top/bottom
+keybind = vim/g>g=scroll_to_top
+keybind = vim/shift+g=scroll_to_bottom
+
+# Search (if you want vim-style search entry)
+keybind = vim/slash=start_search
+keybind = vim/n=navigate_search:next
+
+# Copy mode / selection
+# Note we're missing a lot of actions here to make this more full featured.
+keybind = vim/v=copy_to_clipboard
+keybind = vim/y=copy_to_clipboard
+
+# Command Palette
+keybind = vim/shift+semicolon=toggle_command_palette
+
+# Exit but stay in place
+keybind = vim/q=deactivate_key_table
+
+# Exit but return to promps
+keybind = vim/escape=ignore
+keybind = vim/chain=scroll_to_bottom
+keybind = vim/chain=deactivate_key_table
+
+keybind = vim/i=ignore
+keybind = vim/chain=scroll_to_bottom
+keybind = vim/chain=deactivate_key_table
+
+# Catch unbound keys
+keybind = vim/catch_all=ignore
