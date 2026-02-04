@@ -126,6 +126,8 @@ keybind = vim/
 
 # Entry point
 keybind = ctrl+w>n=activate_key_table:vim
+keybind = ctrl+w>escape=end_key_sequence
+keybind = ctrl+w>ctrl+w=end_key_sequence
 
 # Line movement
 keybind = vim/ctrl+e=scroll_page_lines:1
