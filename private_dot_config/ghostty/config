@@ -162,12 +162,12 @@ keybind = vim/q=deactivate_key_table
 
 # Exit but return to promps
 keybind = vim/escape=ignore
-keybind = vim/chain=scroll_to_bottom
-keybind = vim/chain=deactivate_key_table
+keybind = chain=scroll_to_bottom
+keybind = chain=deactivate_key_table
 
 keybind = vim/i=ignore
-keybind = vim/chain=scroll_to_bottom
-keybind = vim/chain=deactivate_key_table
+keybind = chain=scroll_to_bottom
+keybind = chain=deactivate_key_table
 
 # Catch unbound keys
 keybind = vim/catch_all=ignore
