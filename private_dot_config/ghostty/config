@@ -96,6 +96,7 @@ macos-titlebar-style=tabs
 macos-non-native-fullscreen=visible-menu
 mouse-hide-while-typing=true
 copy-on-select=false
+mouse-scroll-multiplier=1
 
 # Not sure if this has a worthwhile effect...
 window-colorspace=display-p3
@@ -171,3 +172,5 @@ keybind = chain=deactivate_key_table
 
 # Catch unbound keys
 keybind = vim/catch_all=ignore
+
+# macos-open-file-command = md=nvim
