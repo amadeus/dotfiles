@@ -3,6 +3,7 @@
 	excludesfile = /Users/amadeus/.gitignore
 	quotepath = false
 	pager = less -FRX
+	untrackedCache = true
 
 [pull]
 	rebase = true
@@ -77,3 +78,6 @@
 [rebase]
 	autosquash = true
 	autostash = true
+
+[feature]
+	manyFiles = true
