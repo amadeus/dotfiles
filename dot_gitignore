@@ -121,10 +121,6 @@ local.properties
 
 # Logs n Stuff
 *.log
-*.sql
-*.sqlite
-*.sqlite3
-*.db
 
 # Temp and Backup Files
 *.tmp
