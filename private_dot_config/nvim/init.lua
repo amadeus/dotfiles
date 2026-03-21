@@ -45,6 +45,11 @@ lazy.setup({
 		priority = 1000,
 	},
 }, {
+	dev = {
+		path = "~/Developer/nvim",
+		patterns = { "amadeus" },
+		fallback = true,
+	},
 	change_detection = {
 		enabled = false,
 		notify = false,
