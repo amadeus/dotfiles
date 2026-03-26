@@ -88,8 +88,10 @@ window-padding-color=extend
 window-step-resize=false
 
 window-vsync=true
-window-width=120
-window-height=30
+# Defining no window size should allow ghostty to remember from the previous
+# session
+# window-width=120
+# window-height=30
 window-theme=dark
 window-decoration=auto
 macos-titlebar-style=tabs
