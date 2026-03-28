@@ -3,6 +3,6 @@
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.4",
   "defaultThinkingLevel": "medium",
-  "editorPaddingX": 0,
+  "editorPaddingX": 1,
   "autocompleteMaxVisible": 20
 }
