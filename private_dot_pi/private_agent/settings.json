@@ -1,8 +1,16 @@
 {
-  "lastChangelogVersion": "0.61.1",
+  "lastChangelogVersion": "0.64.0",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.4",
-  "defaultThinkingLevel": "medium",
+  "defaultThinkingLevel": "high",
   "editorPaddingX": 1,
-  "autocompleteMaxVisible": 20
+  "autocompleteMaxVisible": 20,
+  "packages": [
+    "npm:pi-subagents",
+    "npm:@aliou/pi-guardrails",
+    "npm:pi-librarian",
+    "npm:@rhedbull/pi-permissions",
+    "npm:pi-plan-mode"
+  ],
+  "hideThinkingBlock": true
 }
