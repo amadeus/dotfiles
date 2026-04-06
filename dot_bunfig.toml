@@ -1,2 +1,9 @@
 [install]
 minimumReleaseAge = 172800
+minimumReleaseAgeExcludes = [
+  "@types/bun",
+  "typescript",
+  "@pierre/diffs",
+  "@pierre/themes",
+  "@pierre/trees"
+]
