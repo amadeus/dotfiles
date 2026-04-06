@@ -34,7 +34,6 @@ lazy.setup({
 		"amadeus/nvim-config",
 		branch = "main",
 		import = "plugins",
-		main = "nvim-config",
 		opts = {},
 		config = function(_, opts)
 			require("nvim-config").setup(opts)
