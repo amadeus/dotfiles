@@ -1,3 +1,5 @@
+# GistID: d30c1b1c11c7b9525ba8fd8f2171af20
+
 function __gw_err -a message
     printf '%s\n' "gw: $message" >&2
 end
@@ -207,6 +209,22 @@ function __gw_branch_exists -a repo_path branch_name
     command git -C "$repo_path" show-ref --verify --quiet -- "refs/heads/$branch_name"
 end
 
+function __gw_remote_branch_ref_exists -a repo_path remote_name branch_name
+    command git -C "$repo_path" show-ref --verify --quiet -- "refs/remotes/$remote_name/$branch_name"
+end
+
+function __gw_remote_branch_exists -a repo_path remote_name branch_name
+    if __gw_remote_branch_ref_exists "$repo_path" "$remote_name" "$branch_name"
+        return 0
+    end
+
+    command git -C "$repo_path" ls-remote --exit-code --heads "$remote_name" "$branch_name" >/dev/null 2>/dev/null
+end
+
+function __gw_fetch_remote_branch_ref -a repo_path remote_name branch_name
+    command git -C "$repo_path" fetch "$remote_name" "+refs/heads/$branch_name:refs/remotes/$remote_name/$branch_name"
+end
+
 function __gw_list_local_branches -a repo_path
     command git -C "$repo_path" for-each-ref --format='%(refname:strip=2)' refs/heads 2>/dev/null
 end
@@ -411,6 +429,32 @@ function __gw_detect_remote_head_from_repo -a repo_path remote_name
     end
 
     return 1
+end
+
+function __gw_sync_hooks_path -a source_repo target_repo
+    set -l hooks_path (command git -C "$source_repo" config --get core.hooksPath 2>/dev/null)
+    if test -z "$hooks_path"
+        return 0
+    end
+
+    if string match -q -- '/*' "$hooks_path"
+        return 0
+    end
+
+    set -l source_hooks "$source_repo/$hooks_path"
+    if not test -d "$source_hooks"
+        return 0
+    end
+
+    set -l target_hooks "$target_repo/$hooks_path"
+    if test -f "$target_hooks/.gitignore"
+        return 0
+    end
+
+    command mkdir -p "$target_hooks"
+    or return 1
+
+    command cp -R "$source_hooks/." "$target_hooks"
 end
 
 function __gw_write_config -a project_root primary_branch remote_name branch_prefix
@@ -631,8 +675,18 @@ function __gw_cmd_switch
         return 0
     end
 
-    set -l resolved_branch (__gw_resolve_branch "$project_root" "$raw_branch" "$ignore_prefix")
-    or return 1
+    set -l remote_name (__gw_remote_name "$project_root")
+    set -l resolved_branch
+    set -l remote_start_ref
+    if __gw_branch_exists "$anchor_repo" "$raw_branch"
+        set resolved_branch "$raw_branch"
+    else if __gw_remote_branch_exists "$anchor_repo" "$remote_name" "$raw_branch"
+        set resolved_branch "$raw_branch"
+        set remote_start_ref "$remote_name/$raw_branch"
+    else
+        set resolved_branch (__gw_resolve_branch "$project_root" "$raw_branch" "$ignore_prefix")
+        or return 1
+    end
 
     set -l existing_worktree (__gw_find_worktree_for_branch "$anchor_repo" "$resolved_branch")
     if test -n "$existing_worktree"
@@ -652,6 +706,14 @@ function __gw_cmd_switch
     if __gw_branch_exists "$anchor_repo" "$resolved_branch"
         command git -C "$anchor_repo" worktree add "$target_path" "$resolved_branch"
         or return 1
+    else if test -n "$remote_start_ref"
+        __gw_fetch_remote_branch_ref "$anchor_repo" "$remote_name" "$resolved_branch"
+        or return 1
+
+        command git -C "$anchor_repo" worktree add -b "$resolved_branch" "$target_path" "$remote_start_ref"
+        or return 1
+
+        command git -C "$target_path" branch --set-upstream-to="$remote_start_ref" "$resolved_branch" >/dev/null 2>/dev/null
     else
         set -l base_repo (__gw_current_repo "$project_root")
         if test -z "$base_repo"
@@ -661,6 +723,9 @@ function __gw_cmd_switch
         command git -C "$base_repo" worktree add -b "$resolved_branch" "$target_path"
         or return 1
     end
+
+    __gw_sync_hooks_path "$anchor_repo" "$target_path"
+    or __gw_err "failed to sync hooks into new worktree: $target_path"
 
     cd "$target_path"
 end
