@@ -1,15 +1,17 @@
 [install]
 minimumReleaseAge = 172800
 minimumReleaseAgeExcludes = [
-  "@types/bun",
-  "typescript",
   "@pierre/diffs",
   "@pierre/themes",
   "@pierre/trees",
+  "@playwright/mcp",
+  "@types/bun",
+  "@types/bun",
   "@typescript/native-preview",
+  "@typescript/native-preview-darwin-arm64",
+  "chrome-devtools-mcp",
   "oxfmt",
   "oxlint",
   "oxlint-tsgolint",
-  "@types/bun",
-  "@typescript/native-preview-darwin-arm64"
+  "typescript"
 ]
