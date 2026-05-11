@@ -6,5 +6,10 @@ minimumReleaseAgeExcludes = [
   "@pierre/diffs",
   "@pierre/themes",
   "@pierre/trees",
-  "oxlint-tsgolint"
+  "@typescript/native-preview",
+  "oxfmt",
+  "oxlint",
+  "oxlint-tsgolint",
+  "@types/bun",
+  "@typescript/native-preview-darwin-arm64"
 ]
