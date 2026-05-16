@@ -1,6 +1,7 @@
 [install]
 minimumReleaseAge = 172800
 minimumReleaseAgeExcludes = [
+  "@amadeusdemarzi/git-gw",
   "@pierre/diffs",
   "@pierre/themes",
   "@pierre/trees",
