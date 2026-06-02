@@ -13,6 +13,8 @@ minimumReleaseAgeExcludes = [
   "chrome-devtools-mcp",
   "oxfmt",
   "oxlint",
+  "oxlint-plugin-react-doctor",
   "oxlint-tsgolint",
+  "react-doctor",
   "typescript"
 ]
