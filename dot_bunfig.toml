@@ -2,6 +2,7 @@
 minimumReleaseAge = 172800
 minimumReleaseAgeExcludes = [
   "@amadeusdemarzi/git-gw",
+  "@mozilla/firefox-devtools-mcp-moz",
   "@pierre/diffs",
   "@pierre/themes",
   "@pierre/trees",
@@ -16,5 +17,6 @@ minimumReleaseAgeExcludes = [
   "oxlint-plugin-react-doctor",
   "oxlint-tsgolint",
   "react-doctor",
+  "safari-mcp",
   "typescript"
 ]
