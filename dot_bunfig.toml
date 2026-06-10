@@ -16,6 +16,8 @@ minimumReleaseAgeExcludes = [
   "oxlint",
   "oxlint-plugin-react-doctor",
   "oxlint-tsgolint",
+  "playwright",
+  "playwright-core",
   "react-doctor",
   "safari-mcp",
   "typescript"
