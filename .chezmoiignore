@@ -1,2 +1,5 @@
 README.md
 .config/fish/conf.d/fnm.fish
+{{- if not (dig "useHammerspoon" false .) }}
+.hammerspoon
+{{- end }}
