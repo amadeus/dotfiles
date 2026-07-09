@@ -15,10 +15,10 @@ set -gx OPENAI_API_KEY "{{ onepasswordRead "op://Private/OpenAI API Key/password
 set -gx TAVILY_API_KEY "{{ onepasswordRead "op://Private/Tavily API Key/password" }}"
 {{- end }}
 
-if test (uname -m) = "arm64"
-  set -Ux HOMEBREW_PREFIX /opt/homebrew
+if test (uname -m) = arm64
+    set -Ux HOMEBREW_PREFIX /opt/homebrew
 else
-  set -Ux HOMEBREW_PREFIX /usr/local
+    set -Ux HOMEBREW_PREFIX /usr/local
 end
 
 set -Ux HOMEBREW_BIN $HOMEBREW_PREFIX/bin
@@ -31,7 +31,7 @@ fish_add_path $HOMEBREW_BIN
 fish_add_path $HOMEBREW_SBIN
 
 if test -e $HOMEBREW_BIN/brew
-  eval ($HOMEBREW_BIN/brew shellenv)
+    eval ($HOMEBREW_BIN/brew shellenv)
 end
 
 # bun
@@ -40,13 +40,19 @@ set --export PATH $BUN_INSTALL/bin $PATH
 
 # direnv
 if command -q direnv
-  direnv hook fish | source
+    direnv hook fish | source
+end
+
+# GitHub CLI token
+if not set -q GITHUB_TOKEN; and command -q gh
+    set -l token (gh auth token 2>/dev/null)
+    and set -gx GITHUB_TOKEN $token
 end
 
 if status is-interactive
-  # Commands to run in interactive sessions can go here
-  set -g fish_greeting 'sup bisch'
-  set -gx EDITOR nvim
+    # Commands to run in interactive sessions can go here
+    set -g fish_greeting 'sup bisch'
+    set -gx EDITOR nvim
 end
 
 # Trying out vim mode...
@@ -57,5 +63,5 @@ fish_add_path /Users/amadeus/.opencode/bin
 
 # Source local config if it exists (not synced with chezmoi)
 if test -f ~/.config/fish/local.fish
-  source ~/.config/fish/local.fish
+    source ~/.config/fish/local.fish
 end
