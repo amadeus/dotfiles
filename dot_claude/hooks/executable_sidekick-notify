@@ -1,0 +1,12 @@
+#!/bin/sh
+
+case "${1:-}" in
+  waiting | permission) ;;
+  *) exit 0 ;;
+esac
+
+if [ -z "${NVIM:-}" ]; then
+  exit 0
+fi
+
+nvim --server "$NVIM" --remote-expr "execute('SidekickNotify claude $1')" >/dev/null 2>&1 || true
