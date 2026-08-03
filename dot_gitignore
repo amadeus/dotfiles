@@ -1,3 +1,6 @@
+# Personal Shit
+.nvim.lua
+
 # macOS
 .DS_Store
 ._*
