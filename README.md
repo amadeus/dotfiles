@@ -22,3 +22,8 @@ To preview what would change without touching anything:
 chezmoi init amadeus
 chezmoi diff
 ```
+
+## Neovim
+
+My Neovim configuration lives in a separate repo you can check out here:
+[amadeus/nvim-config](https://github.com/amadeus/nvim-config).
