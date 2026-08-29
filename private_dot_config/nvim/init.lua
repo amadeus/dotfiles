@@ -58,7 +58,7 @@ lazy.setup({
 	ui = {
 		wrap = true,
 		size = { width = 0.85, height = 0.85 },
-		border = "rounded",
+		border = "single",
 		backdrop = 10,
 	},
 	-- Disable some built-in plugins for faster startup
