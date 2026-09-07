@@ -1,0 +1,30 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "theme": {
+    "name": "tokyonight"
+  },
+  "keybinds": {
+    "session.line.up": "ctrl+y",
+    "session.line.down": "ctrl+e"
+  },
+  "scroll": {
+    "speed": 1,
+    "acceleration": false
+  },
+  "diffs": {
+    "wrap": "word"
+  },
+  "session": {
+    "sidebar": "hide",
+    "scrollbar": false,
+    "thinking": "show"
+  },
+  "animations": true,
+  "tabs": {
+    "layout": "horizontal",
+    "enabled": false
+  },
+  "terminal": {
+    "title": true
+  }
+}
