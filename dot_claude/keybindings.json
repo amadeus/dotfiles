@@ -8,6 +8,12 @@
         "ctrl+e": "scroll:lineDown",
         "ctrl+y": "scroll:lineUp"
       }
+    },
+    {
+      "context": "Chat",
+      "bindings": {
+        "ctrl+l": null
+      }
     }
   ]
 }
