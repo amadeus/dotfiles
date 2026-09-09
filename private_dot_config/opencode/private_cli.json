@@ -28,6 +28,6 @@
     "title": true
   },
   "plugins": [
-    "./cli-plugins/agents-ready"
+    "./cli-plugins/gents-ready"
   ]
 }

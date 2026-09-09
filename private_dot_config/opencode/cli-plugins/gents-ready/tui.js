@@ -1,10 +1,10 @@
 import { execFile } from "node:child_process";
 
 export default {
-  id: "agents-ready.cli",
+  id: "gents-ready.cli",
   setup(context) {
     const server = process.env.NVIM;
-    const id = process.env.AGENTS_SESSION;
+    const id = process.env.GENTS_SESSION;
     if (!server || !/^\d+$/.test(id ?? "")) return;
 
     return context.data.on("session.execution.succeeded", (event) => {
@@ -16,7 +16,7 @@ export default {
 
       execFile(
         "nvim",
-        ["--server", server, "--remote-expr", `v:lua.require'agents'.ready(${id})`],
+        ["--server", server, "--remote-expr", `v:lua.require'gents'.ready(${id})`],
         { timeout: 2000 },
         () => {}, // The Neovim session may have closed while OpenCode was working.
       );
