@@ -26,5 +26,8 @@
   },
   "terminal": {
     "title": true
-  }
+  },
+  "plugins": [
+    "./cli-plugins/agents-ready"
+  ]
 }
