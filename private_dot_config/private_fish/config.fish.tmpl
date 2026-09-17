@@ -15,6 +15,8 @@ set -gx OPENAI_API_KEY "{{ onepasswordRead "op://Private/OpenAI API Key/password
 set -gx TAVILY_API_KEY "{{ onepasswordRead "op://Private/Tavily API Key/password" }}"
 {{- end }}
 
+set -Ux OP_BIOMETRIC_UNLOCK_ENABLED true
+
 if test (uname -m) = arm64
     set -Ux HOMEBREW_PREFIX /opt/homebrew
 else
