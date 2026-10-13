@@ -39,6 +39,43 @@ def sessions():
     return api("session.list").get("sessions") or []
 
 
+def remote_caller():
+    """Describe the remote machine driving this shell, or None when it is local."""
+    if os.environ.get("SSH_CONNECTION"):
+        return f"ssh from {os.environ['SSH_CONNECTION'].split()[0]}"
+    session_id, block_id = os.environ.get("REX_SESSION"), os.environ.get("REX_BLOCK")
+    if not (session_id and block_id):
+        return None
+    # Several apps can attach to one session; the pane's size owner is the one
+    # the user last clicked or typed in, i.e. the one that ran this command.
+    owner = api("com.superlogical.terminal.size", session_id=session_id,
+                block_id=block_id, args={})["owner"]
+    if owner is None:
+        return None
+    for client in api("client.list")["clients"]:
+        if client["client_id"] == owner:
+            principal = client["principal"]
+            # Rex.app on this Mac attaches over the server's Unix socket.
+            if principal["transport"] == "unix":
+                return None
+            who = (client.get("info") or {}).get("label") or owner
+            return f"{who} ({principal['display']} over {principal['transport']})"
+    return f"{owner} (no longer connected)"
+
+
+def confirm_if_remote(action):
+    caller = remote_caller()
+    if caller is None:
+        return
+    print(f"rex-{action}: called from another machine: {caller}", file=sys.stderr)
+    try:
+        answer = input(f"Continue with rex-{action} on this server? [y/N] ")
+    except (EOFError, KeyboardInterrupt):
+        print(file=sys.stderr)
+        answer = ""
+    require(answer.strip().lower() in ("y", "yes"), f"rex-{action} cancelled")
+
+
 def save_layout(node, blocks, session_id):
     if node.get("split"):
         split = node["split"]
@@ -183,6 +220,8 @@ def restore(snapshot):
 def main():
     require(shutil.which("rex"), "rex is not available in PATH")
     action = sys.argv[1]
+    if action in ("save", "restore"):
+        confirm_if_remote(action)
     if action == "restore":
         with SNAPSHOT.open() as stream:
             snapshot = json.load(stream)
