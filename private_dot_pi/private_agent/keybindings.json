@@ -1,0 +1,7 @@
+{
+  "$schema": "https://pi.dev/schemas/keybindings.schema.json",
+  "tui.altScreen.lineUp": "ctrl+y",
+  "tui.altScreen.lineDown": "ctrl+e",
+  "tui.editor.cursorLineEnd": "end",
+  "tui.editor.yank": []
+}
