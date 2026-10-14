@@ -96,6 +96,14 @@ def save_layout(node, blocks, session_id):
     return {"pane": {"name": block["label"], "cwd": cwd}}
 
 
+def save_bounds(bounds):
+    # Rex reports bounds as [x, y, w, h]; snapshots keep the object form.
+    if isinstance(bounds, list):
+        require(len(bounds) == 4, "Invalid layer bounds")
+        return dict(zip(("x", "y", "w", "h"), bounds))
+    return bounds
+
+
 def save():
     initial_sessions = sessions()
     saved = []
@@ -109,7 +117,7 @@ def save():
                 require(layer["layout"] is not None, "Cannot save an empty layer")
                 blocks = {b["block_id"]: b for b in layer["blocks"]}
                 layers.append({
-                    "kind": layer["kind"], "bounds": layer["bounds"],
+                    "kind": layer["kind"], "bounds": save_bounds(layer["bounds"]),
                     "layout": save_layout(layer["layout"], blocks, session_id),
                 })
             windows.append({"name": window["label"], "layers": layers})
