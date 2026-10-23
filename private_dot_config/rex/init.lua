@@ -10,9 +10,9 @@ rex.action({
 			})
 		end
 
-		local passthrough = not process or not process.foreground
+		local passthrough = false
 		if process then
-			passthrough = passthrough or process.foreground.name == "nvim"
+			passthrough = process.foreground ~= nil and process.foreground.name == "nvim"
 			for _, ancestor in ipairs(process.ancestors or {}) do
 				passthrough = passthrough or ancestor.name == "nvim"
 			end
