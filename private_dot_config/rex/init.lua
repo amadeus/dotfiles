@@ -35,6 +35,8 @@ end
 
 rex.bind("panes/v", "pane.split", { direction = "right" })
 rex.bind("panes/s", "pane.split", { direction = "down" })
+rex.bind("panes/o", "pane.zoom")
+rex.bind("panes/shift+o", "pane.zoom")
 rex.bind("panes/t", "client.tab.next")
 rex.bind("panes/shift+t", "client.tab.previous")
 
