@@ -28,11 +28,13 @@ rex.action({
 rex.bind("ctrl+w", "navigate_panes")
 
 rex.mode("panes", { exclusive = true })
+
 for key, direction in pairs({ h = "left", j = "down", k = "up", l = "right" }) do
 	rex.bind("panes/" .. key, "pane.focus", { direction = direction, wrap = false })
 	rex.bind("panes/ctrl+" .. key, "pane.focus", { direction = direction, wrap = false })
 end
 
+rex.bind("panes/=", "pane.balance")
 rex.bind("panes/v", "pane.split", { direction = "right" })
 rex.bind("panes/s", "pane.split", { direction = "down" })
 rex.bind("panes/o", "pane.zoom")
