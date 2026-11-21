@@ -36,6 +36,7 @@ end
 
 rex.bind("panes/=", "pane.balance")
 rex.bind("panes/v", "pane.split", { direction = "right" })
+rex.bind("panes/shift+v", "pane.split", { direction = "right" })
 rex.bind("panes/s", "pane.split", { direction = "down" })
 rex.bind("panes/o", "pane.zoom")
 rex.bind("panes/shift+o", "pane.zoom")
