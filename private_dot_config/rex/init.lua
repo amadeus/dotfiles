@@ -45,3 +45,8 @@ rex.bind("panes/shift+t", "client.tab.previous")
 
 -- Escape cancels the mode; Ctrl+W twice sends Ctrl+W to the terminal.
 rex.bind("panes/ctrl+w", "pane.send_key", { key = "ctrl+w" })
+
+-- Resume Neovim through its private, per-instance startup script.
+rex.set("resume.trust.nvim", {
+	command = { "nvim", "-S", rex.match.under("~/.local/state/nvim/program-resume") },
+})
